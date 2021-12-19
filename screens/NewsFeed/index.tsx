@@ -1,30 +1,28 @@
-import { StyleSheet } from 'react-native';
+import { useContext, useEffect } from 'react';
+import { useRoute } from '@react-navigation/native';
 
 import { Text, View } from '../../components/Themed';
+import FeedsContext from '../../context/feeds';
+import { FeedsContextType } from '../../context/feeds/types';
 import { NewsNavigatorProps } from '../../types';
+import styles from './styles';
+import NewsFeedList from '../../components/NewsFeedList';
+import { Alert } from 'react-native';
 
 export default function NewsFeedScreen({ navigation }: NewsNavigatorProps<'NewsFeed'>) {
+  const feedsContext = useContext<FeedsContextType>(FeedsContext);
+  const { params }: any = useRoute();
+  const url = params?.url;
+
+  useEffect(() => {
+    void feedsContext.fetchNewsFeed(url);
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title} onPress={ () => navigation.navigate('CategoryFeeds')}>News Feeds</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <NewsFeedList data={feedsContext.newsFeedData} onPress={() => Alert.alert('s')}/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+

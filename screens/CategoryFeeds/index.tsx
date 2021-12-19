@@ -17,8 +17,10 @@ export default function CategoryFeedsScreen({ navigation }: NewsNavigatorProps<'
 
   return (
     <View style={styles.container}>
-      <CategoryFeedsList data={feedsContext.categoryFeeds}/>
+      <CategoryFeedsList
+        data={feedsContext.categoryFeeds}
+        onPress={(url) => navigation.navigate('NewsFeed', { url })} />
     </View>
   );
-}
+};
 

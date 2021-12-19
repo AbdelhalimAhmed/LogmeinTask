@@ -11,8 +11,8 @@ import Navigation from './navigation';
    2. [x] add navigation (.30)
    3. [x] search for free RSS feeds api (.15) Done with ==> https://www.dw.com/en/rss/s-31500
    4. [x] setup context API for manage state and fetch side effect (.30)
-   5. [x] RSS feeds list = categoryFeeds (UI + integration) (.45)
-   6. [ ] news Feed list (UI + integration)
+   5. [x] RSS feeds list = categoryFeeds (UI + integration) (.30)
+   6. [x] news Feed list (UI + integration) (.45)
    7. [ ] Entry Details Screen
    8. [ ] Add the name of Feed into header for the list of news
    9. [ ] Add the number of items in the news feed list

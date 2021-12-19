@@ -12,7 +12,7 @@ function CategoryCard({ item, onPress }: { item: Category, onPress: () => void }
   );
 };
 
-export default function CategoryFeedsList({ data }: { data: Category[] }) {
+export default function CategoryFeedsList({ data, onPress }: { data: Category[], onPress: (url: string) => void }) {
   return (
     <FlatList
       numColumns={2}
@@ -20,7 +20,7 @@ export default function CategoryFeedsList({ data }: { data: Category[] }) {
       keyExtractor={(item) => item.id.toString()}
       data={data}
       renderItem={({ item }) => (
-        <CategoryCard item={item} onPress={() => Alert.alert('s')}/>
+        <CategoryCard item={item} onPress={() => onPress(item.url)}/>
       )}
     />
   );
