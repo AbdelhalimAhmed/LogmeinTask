@@ -2,11 +2,11 @@
 export type Category = {
   id: number;
   title: string;
-  url: string
+  url: string;
 };
 
 export type UrlType = {
-  url: string
+  url: string;
 };
 
 export type NewsType = {
@@ -17,12 +17,17 @@ export type NewsType = {
   links: UrlType[];
 };
 
+export type FeedType = {
+  items: NewsType[];
+  title: string;
+};
+
 export type FeedsStateType = {
   categoryFeeds: Category[];
-  newsFeedLoading: boolean,
-  newsFeedError: string,
-  newsFeedData: NewsType[]
-}
+  newsFeedLoading: boolean;
+  newsFeedError: string;
+  newsFeedData: FeedType;
+};
 
 export type FeedsContextType = {
   fetchCategoryFeeds: () => void;

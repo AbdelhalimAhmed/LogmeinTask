@@ -18,9 +18,15 @@ export default function NewsFeedScreen({ navigation }: NewsNavigatorProps<'NewsF
     void feedsContext.fetchNewsFeed(url);
   }, []);
 
+  useEffect(() => {
+    navigation.setOptions({
+      title: `${feedsContext.newsFeedData?.title} (${feedsContext.newsFeedData.items?.length})` ?? ''
+    })
+  },[feedsContext.newsFeedData?.title])
+
   return (
     <View style={styles.container}>
-      <NewsFeedList data={feedsContext.newsFeedData} onPress={(url) => WebBrowser.openBrowserAsync(url)}/>
+      <NewsFeedList data={feedsContext.newsFeedData?.items} onPress={(url) => WebBrowser.openBrowserAsync(url)}/>
     </View>
   );
 }

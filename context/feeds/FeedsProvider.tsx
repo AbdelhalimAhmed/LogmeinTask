@@ -1,6 +1,6 @@
 import React, { ReactFragment, useState } from 'react';
 import { CategoryFeeds } from '../../constants/DummyData';
-import { FeedsStateType } from './types';
+import { FeedsStateType, FeedType } from './types';
 import FeedsContext  from '.';
 import * as rssParser from 'react-native-rss-parser';
 
@@ -9,7 +9,7 @@ const initialState = {
   categoryFeeds: [],
   newsFeedLoading: false,
   newsFeedError: '',
-  newsFeedData: []
+  newsFeedData: {} as FeedType
 };
 
 export function FeedsProvider(props: { children: React.ReactNode}) {
@@ -25,7 +25,7 @@ export function FeedsProvider(props: { children: React.ReactNode}) {
       .then((response) => response.text())
       .then((responseData) => rssParser.parse(responseData))
       .then((rss) => {
-        setState({ ...state, newsFeedData: rss.items, newsFeedLoading: false });
+        setState({ ...state, newsFeedData: rss, newsFeedLoading: false });
       }).catch(error => {
         setState({ ...state, newsFeedError: error, newsFeedLoading: false });
       });

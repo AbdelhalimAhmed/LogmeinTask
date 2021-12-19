@@ -13,9 +13,9 @@ import Navigation from './navigation';
    4. [x] setup context API for manage state and fetch side effect (.30)
    5. [x] RSS feeds list = categoryFeeds (UI + integration) (.30)
    6. [x] news Feed list (UI + integration) (.45)
-   7. [ ] Entry Details Screen (.05)
-   8. [ ] Add the name of Feed into header for the list of news
-   9. [ ] Add the number of items in the news feed list
+   7. [x] Entry Details Screen (.05)
+   8. [x] Add the name of Feed into header for the list of news (.15)
+   9. [x] Add the number of items in the news feed list (including in above task)
   10. [ ] add error handling for each data fetch from RSS feed
   11. [ ] add favorites of feeds into local storage
   12. [ ] add unit testing (jest + react-native-testing-library)
