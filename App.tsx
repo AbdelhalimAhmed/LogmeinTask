@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { FeedsProvider } from './context/feeds';
 
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
@@ -9,7 +10,7 @@ import Navigation from './navigation';
    1. [x] initialize app (expo), describe features workflow (.30)
    2. [x] add navigation (.30)
    3. [x] search for free RSS feeds api (.15) Done with ==> https://www.dw.com/en/rss/s-31500
-   4. [ ] setup context API for manage state and fetch side effect
+   4. [x] setup context API for manage state and fetch side effect (.30)
    5. [ ] RSS feeds list = categoryFeeds (UI + integration)
    6. [ ] news Feed list (UI + integration)
    7. [ ] Entry Details Screen
@@ -29,7 +30,9 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
+        <FeedsProvider>
+          <Navigation colorScheme={colorScheme} />
+        </FeedsProvider>
         <StatusBar />
       </SafeAreaProvider>
     );
