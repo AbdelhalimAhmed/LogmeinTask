@@ -18,7 +18,9 @@ import Navigation from './navigation';
    9. [x] Add the number of items in the news feed list (including in above task)
   10. [x] add error handling for each data fetch from RSS feed (already done while adding context)
   11. [x] add favorites of feeds into local storage (.45)
-  12. [ ] add unit testing (jest + react-native-testing-library)
+  12. [x] add unit testing (jest + react-native-testing-library) (.40)
+
+  Notice: Total time: 04:45 extended the time box (4:00) > 45 minutes.
 */
 
 export default function App() {

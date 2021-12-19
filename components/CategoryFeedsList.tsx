@@ -5,9 +5,9 @@ import { Category } from '../context/feeds/types';
 import { MonoText } from './StyledText';
 
 
-function CategoryCard({ item, onPress, onFavoritePress, isFavorite }: { item: Category, onPress: () => void, onFavoritePress: () => void, isFavorite: boolean }) {
+export function CategoryCard({ item, onPress, onFavoritePress, isFavorite }: { item: Category, onPress: () => void, onFavoritePress: () => void, isFavorite: boolean }) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
+    <TouchableOpacity testID={`category-${item.id}}`} style={styles.card} onPress={onPress}>
       <MonoText style={styles.title}>{item.title}</MonoText>
       <FontAwesome name={isFavorite ? 'heart':'heart-o'} size={25} style={styles.favorite} onPress={onFavoritePress}/>
     </TouchableOpacity>
@@ -18,16 +18,15 @@ export default function CategoryFeedsList({
   data,
   onPress,
   onFavoritePress,
-  favoritesList }: {
+  favoritesList, ...others }: {
     data: Category[],
     onPress: (url: string) => void,
     onFavoritePress: (id: number) => void,
     favoritesList: number[]
   }) {
-  console.log({'sssqq': data[0], favoritesList})
   return (
     <FlatList
-      extraData={favoritesList}
+      testID='category-feeds-list'
       numColumns={2}
       style={styles.list}
       keyExtractor={(item) => item.id.toString()}
@@ -37,9 +36,10 @@ export default function CategoryFeedsList({
           item={item}
           onPress={() => onPress(item.url)}
           onFavoritePress={() => onFavoritePress?.(item.id)}
-          isFavorite={favoritesList.includes(item.id)}
+          isFavorite={favoritesList?.includes(item.id)}
         />
       )}
+      {...others}
     />
   );
 };
