@@ -13,9 +13,9 @@ import { ColorSchemeName, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
-import EntriesFeedScreen from '../screens/EntriesFeedScreen';
-import NewsFeedsScreen from '../screens/NewsFeedsScreen';
-import FavoriteFeedsScreen from '../screens/FavoriteFeedsScreen';
+import EntriesFeedScreen from '../screens/EntriesFeed';
+import NewsFeedsScreen from '../screens/NewsFeeds';
+import FavoriteFeedsScreen from '../screens/FavoriteFeeds';
 import { NewsParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 

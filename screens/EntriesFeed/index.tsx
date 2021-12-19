@@ -1,7 +1,7 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Text, View } from '../components/Themed';
-import { NewsNavigatorProps } from '../types';
+import { Text, View } from '../../components/Themed';
+import { NewsNavigatorProps } from '../../types';
 
 export default function EntriesFeedScreen({ navigation }: NewsNavigatorProps<'EntriesFeed'>) {
   return (
