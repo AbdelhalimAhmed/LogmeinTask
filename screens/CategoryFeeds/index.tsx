@@ -12,14 +12,17 @@ export default function CategoryFeedsScreen({ navigation }: NewsNavigatorProps<'
   const feedsContext = useContext<FeedsContextType>(FeedsContext);
 
   useEffect(() => {
-    feedsContext.fetchCategoryFeeds();
+    feedsContext.init();
   }, []);
 
   return (
     <View style={styles.container}>
       <CategoryFeedsList
         data={feedsContext.categoryFeeds}
-        onPress={(url) => navigation.navigate('NewsFeed', { url })} />
+        onPress={(url) => navigation.navigate('NewsFeed', { url })}
+        onFavoritePress={feedsContext.onFavoriteCategoryFeeds}
+        favoritesList={feedsContext.favoritesCategoryFeeds}
+      />
     </View>
   );
 };

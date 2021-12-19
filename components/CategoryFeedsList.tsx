@@ -1,30 +1,48 @@
+import { FontAwesome } from '@expo/vector-icons';
 import { Alert, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import Colors from '../constants/Colors';
 import { Category } from '../context/feeds/types';
 import { MonoText } from './StyledText';
 
 
-function CategoryCard({ item, onPress }: { item: Category, onPress: () => void }) {
+function CategoryCard({ item, onPress, onFavoritePress, isFavorite }: { item: Category, onPress: () => void, onFavoritePress: () => void, isFavorite: boolean }) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <MonoText style={styles.title}>{item.title}</MonoText>
+      <FontAwesome name={isFavorite ? 'heart':'heart-o'} size={25} style={styles.favorite} onPress={onFavoritePress}/>
     </TouchableOpacity>
   );
 };
 
-export default function CategoryFeedsList({ data, onPress }: { data: Category[], onPress: (url: string) => void }) {
+export default function CategoryFeedsList({
+  data,
+  onPress,
+  onFavoritePress,
+  favoritesList }: {
+    data: Category[],
+    onPress: (url: string) => void,
+    onFavoritePress: (id: number) => void,
+    favoritesList: number[]
+  }) {
+  console.log({'sssqq': data[0], favoritesList})
   return (
     <FlatList
+      extraData={favoritesList}
       numColumns={2}
       style={styles.list}
       keyExtractor={(item) => item.id.toString()}
       data={data}
       renderItem={({ item }) => (
-        <CategoryCard item={item} onPress={() => onPress(item.url)}/>
+        <CategoryCard
+          item={item}
+          onPress={() => onPress(item.url)}
+          onFavoritePress={() => onFavoritePress?.(item.id)}
+          isFavorite={favoritesList.includes(item.id)}
+        />
       )}
     />
   );
-}
+};
 
 
 const styles = StyleSheet.create({
@@ -50,5 +68,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20
+  },
+  favorite: {
+    position: 'absolute',
+    right: 10,
+    top: 10,
   }
 });

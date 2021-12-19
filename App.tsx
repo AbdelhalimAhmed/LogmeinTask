@@ -16,8 +16,8 @@ import Navigation from './navigation';
    7. [x] Entry Details Screen (.05)
    8. [x] Add the name of Feed into header for the list of news (.15)
    9. [x] Add the number of items in the news feed list (including in above task)
-  10. [ ] add error handling for each data fetch from RSS feed
-  11. [ ] add favorites of feeds into local storage
+  10. [x] add error handling for each data fetch from RSS feed (already done while adding context)
+  11. [x] add favorites of feeds into local storage (.45)
   12. [ ] add unit testing (jest + react-native-testing-library)
 */
 

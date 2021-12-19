@@ -27,9 +27,12 @@ export type FeedsStateType = {
   newsFeedLoading: boolean;
   newsFeedError: string;
   newsFeedData: FeedType;
+  favoritesCategoryFeeds: number[];
 };
 
 export type FeedsContextType = {
   fetchCategoryFeeds: () => void;
   fetchNewsFeed: (url: string) => Promise<void>;
+  onFavoriteCategoryFeeds: (id: number) => void;
+  init: () => void;
 } & FeedsStateType;

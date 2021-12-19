@@ -16,7 +16,7 @@ import ModalScreen from '../screens/ModalScreen';
 import CategoryFeedsScreen from '../screens/CategoryFeeds';
 import NewsFeedScreen from '../screens/NewsFeed';
 import FavoriteFeedsScreen from '../screens/FavoriteFeeds';
-import { NewsParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { FavoriteFeedsParamList, NewsParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -53,9 +53,22 @@ function NewsNavigator() {
     <NewsStack.Navigator>
       <NewsStack.Screen name="CategoryFeeds" component={CategoryFeedsScreen} options={{ headerShown: false }} />
       <NewsStack.Group screenOptions={{ presentation: 'modal' }}>
-        <NewsStack.Screen name="NewsFeed" component={NewsFeedScreen} options={{ title: 'Oops!' }} />
+        <NewsStack.Screen name="NewsFeed" component={NewsFeedScreen} />
       </NewsStack.Group>
     </NewsStack.Navigator>
+  );
+}
+
+const FavoriteFeedsStack = createNativeStackNavigator<FavoriteFeedsParamList>();
+
+function FavoriteFeedsNavigator() {
+  return (
+    <FavoriteFeedsStack.Navigator>
+      <FavoriteFeedsStack.Screen name="FavoriteFeeds" component={FavoriteFeedsScreen} options={{ headerShown: false }} />
+      <FavoriteFeedsStack.Group screenOptions={{ presentation: 'modal' }}>
+        <FavoriteFeedsStack.Screen name="NewsFeed" component={NewsFeedScreen} />
+      </FavoriteFeedsStack.Group>
+    </FavoriteFeedsStack.Navigator>
   );
 }
 
@@ -79,26 +92,12 @@ function BottomTabNavigator() {
         component={NewsNavigator}
         options={({ navigation }: RootTabScreenProps<'News'>) => ({
           title: 'News Feeds',
-          tabBarIcon: ({ color }) => <TabBarIcon name="newspaper-o" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="newspaper-o" color={color} />
         })}
       />
       <BottomTab.Screen
         name="FavoriteFeeds"
-        component={FavoriteFeedsScreen}
+        component={FavoriteFeedsNavigator}
         options={{
           title: 'Favorite Feeds',
           tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? "heart" : "heart-o"} color={color} />,

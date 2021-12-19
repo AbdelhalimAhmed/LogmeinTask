@@ -23,6 +23,11 @@ export type NewsParamList = {
   CategoryFeeds: undefined;
 };
 
+export type FavoriteFeedsParamList = {
+  NewsFeed: undefined;
+  FavoriteFeeds: undefined;
+};
+
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
   RootStackParamList,
   Screen
