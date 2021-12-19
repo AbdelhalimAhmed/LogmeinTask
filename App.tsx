@@ -13,7 +13,7 @@ import Navigation from './navigation';
    4. [x] setup context API for manage state and fetch side effect (.30)
    5. [x] RSS feeds list = categoryFeeds (UI + integration) (.30)
    6. [x] news Feed list (UI + integration) (.45)
-   7. [ ] Entry Details Screen
+   7. [ ] Entry Details Screen (.05)
    8. [ ] Add the name of Feed into header for the list of news
    9. [ ] Add the number of items in the news feed list
   10. [ ] add error handling for each data fetch from RSS feed

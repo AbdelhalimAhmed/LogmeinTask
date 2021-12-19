@@ -7,7 +7,7 @@ import { FeedsContextType } from '../../context/feeds/types';
 import { NewsNavigatorProps } from '../../types';
 import styles from './styles';
 import NewsFeedList from '../../components/NewsFeedList';
-import { Alert } from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
 
 export default function NewsFeedScreen({ navigation }: NewsNavigatorProps<'NewsFeed'>) {
   const feedsContext = useContext<FeedsContextType>(FeedsContext);
@@ -20,7 +20,7 @@ export default function NewsFeedScreen({ navigation }: NewsNavigatorProps<'NewsF
 
   return (
     <View style={styles.container}>
-      <NewsFeedList data={feedsContext.newsFeedData} onPress={() => Alert.alert('s')}/>
+      <NewsFeedList data={feedsContext.newsFeedData} onPress={(url) => WebBrowser.openBrowserAsync(url)}/>
     </View>
   );
 }
