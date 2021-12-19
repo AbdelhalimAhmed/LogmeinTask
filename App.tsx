@@ -7,7 +7,7 @@ import Navigation from './navigation';
 
 /* TODO-LIST:
    1. [x] initialize app (expo), describe features workflow (.30)
-   2. [ ] add navigation
+   2. [x] add navigation (.30)
    3. [ ] search for free RSS feeds api
    4. [ ] RSS feeds list (UI + integration)
    5. [ ] Entries Feed list (UI + integration)
