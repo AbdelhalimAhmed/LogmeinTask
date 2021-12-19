@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 import { NewsNavigatorProps } from '../../types';
 
@@ -9,7 +8,6 @@ export default function NewsFeedScreen({ navigation }: NewsNavigatorProps<'NewsF
     <View style={styles.container}>
       <Text style={styles.title} onPress={ () => navigation.navigate('CategoryFeeds')}>News Feeds</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/NewsFeedScreen.tsx" />
     </View>
   );
 }

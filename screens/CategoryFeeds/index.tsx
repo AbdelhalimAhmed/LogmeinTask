@@ -1,36 +1,24 @@
+import { useContext, useEffect } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import CategoryFeedsList from '../../components/CategoryFeedsList';
 
 import { Text, View } from '../../components/Themed';
+import FeedsContext from '../../context/feeds';
+import { FeedsContextType } from '../../context/feeds/types';
 import { NewsNavigatorProps } from '../../types';
+import styles from './styles';
 
 export default function CategoryFeedsScreen({ navigation }: NewsNavigatorProps<'CategoryFeeds'>) {
+  const feedsContext = useContext<FeedsContextType>(FeedsContext);
+
+  useEffect(() => {
+    feedsContext.fetchCategoryFeeds();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>This screen doesn't exist.</Text>
-      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
+      <CategoryFeedsList data={feedsContext.categoryFeeds}/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-});

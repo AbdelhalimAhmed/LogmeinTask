@@ -51,9 +51,9 @@ const NewsStack = createNativeStackNavigator<NewsParamList>();
 function NewsNavigator() {
   return (
     <NewsStack.Navigator>
-      <NewsStack.Screen name="NewsFeed" component={NewsFeedScreen} options={{ headerShown: false }} />
+      <NewsStack.Screen name="CategoryFeeds" component={CategoryFeedsScreen} options={{ headerShown: false }} />
       <NewsStack.Group screenOptions={{ presentation: 'modal' }}>
-        <NewsStack.Screen name="CategoryFeeds" component={CategoryFeedsScreen} options={{ title: 'Oops!' }} />
+        <NewsStack.Screen name="NewsFeed" component={NewsFeedScreen} options={{ title: 'Oops!' }} />
       </NewsStack.Group>
     </NewsStack.Navigator>
   );
