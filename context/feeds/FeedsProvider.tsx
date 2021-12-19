@@ -1,7 +1,7 @@
 import React, { ReactFragment, useState } from 'react';
 import { CategoryFeeds } from '../../constants/DummyData';
 import { FeedsStateType } from './types';
-import FeedsContext from '.';
+import FeedsContext  from '.';
 
 
 const initialState = {
