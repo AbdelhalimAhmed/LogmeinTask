@@ -17,8 +17,8 @@ const linking: LinkingOptions<RootStackParamList> = {
         screens: {
           News: {
             screens: {
-              NewsFeedsScreen: 'news',
-              EntriesFeed: 'entries'
+              NewsFeedScreen: 'news',
+              CategoryFeeds: 'category'
             },
           },
           FavoriteFeeds: {

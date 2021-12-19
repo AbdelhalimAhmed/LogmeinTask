@@ -19,8 +19,8 @@ export type RootStackParamList = {
 };
 
 export type NewsParamList = {
-  NewsFeeds: undefined;
-  EntriesFeed: undefined;
+  NewsFeed: undefined;
+  CategoryFeeds: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

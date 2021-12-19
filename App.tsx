@@ -10,11 +10,11 @@ import Navigation from './navigation';
    2. [x] add navigation (.30)
    3. [x] search for free RSS feeds api (.15) Done with ==> https://www.dw.com/en/rss/s-31500
    4. [ ] setup context API for manage state and fetch side effect
-   5. [ ] RSS feeds list (UI + integration)
-   6. [ ] Entries Feed list (UI + integration)
+   5. [ ] RSS feeds list = categoryFeeds (UI + integration)
+   6. [ ] news Feed list (UI + integration)
    7. [ ] Entry Details Screen
-   8. [ ] Add the name of Feed into header for the list of entries
-   9. [ ] Add the number of items in the entries feed list
+   8. [ ] Add the name of Feed into header for the list of news
+   9. [ ] Add the number of items in the news feed list
   10. [ ] add error handling for each data fetch from RSS feed
   11. [ ] add favorites of feeds into local storage
   12. [ ] add unit testing (jest + react-native-testing-library)

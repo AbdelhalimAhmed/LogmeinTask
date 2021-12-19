@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import { NewsNavigatorProps } from '../../types';
 
-export default function EntriesFeedScreen({ navigation }: NewsNavigatorProps<'EntriesFeed'>) {
+export default function CategoryFeedsScreen({ navigation }: NewsNavigatorProps<'CategoryFeeds'>) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>This screen doesn't exist.</Text>

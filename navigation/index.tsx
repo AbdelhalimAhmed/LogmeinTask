@@ -13,8 +13,8 @@ import { ColorSchemeName, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
-import EntriesFeedScreen from '../screens/EntriesFeed';
-import NewsFeedsScreen from '../screens/NewsFeeds';
+import CategoryFeedsScreen from '../screens/CategoryFeeds';
+import NewsFeedScreen from '../screens/NewsFeed';
 import FavoriteFeedsScreen from '../screens/FavoriteFeeds';
 import { NewsParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -51,9 +51,9 @@ const NewsStack = createNativeStackNavigator<NewsParamList>();
 function NewsNavigator() {
   return (
     <NewsStack.Navigator>
-      <NewsStack.Screen name="NewsFeeds" component={NewsFeedsScreen} options={{ headerShown: false }} />
+      <NewsStack.Screen name="NewsFeed" component={NewsFeedScreen} options={{ headerShown: false }} />
       <NewsStack.Group screenOptions={{ presentation: 'modal' }}>
-        <NewsStack.Screen name="EntriesFeed" component={EntriesFeedScreen} options={{ title: 'Oops!' }} />
+        <NewsStack.Screen name="CategoryFeeds" component={CategoryFeedsScreen} options={{ title: 'Oops!' }} />
       </NewsStack.Group>
     </NewsStack.Navigator>
   );
